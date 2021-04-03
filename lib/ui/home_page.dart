@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ContactHelper helper = ContactHelper();
+  DatabaseProvider helper = DatabaseProvider();
   List<Contact> contacts = List();
 
   @override

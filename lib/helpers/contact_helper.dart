@@ -8,13 +8,14 @@ final String emailColumn = "emailColumn";
 final String phoneColumn = "phoneColumn";
 final String imgColumn = "imgColumn";
 
-class ContactHelper {
+class DatabaseProvider {
 
-  static final ContactHelper _instance = ContactHelper.internal();
+  //singleton
+  static final DatabaseProvider _instance = DatabaseProvider.internal();
 
-  factory ContactHelper() => _instance;
+  factory DatabaseProvider() => _instance;
 
-  ContactHelper.internal();
+  DatabaseProvider.internal();
 
   Database _db;
 
@@ -103,6 +104,7 @@ class Contact {
 
   Contact();
 
+  // Construtor que converte os dados de mapa (JSON) para objeto do contato
   Contact.fromMap(Map map) {
     id = map[idColumn];
     name = map[nameColumn];
@@ -111,6 +113,7 @@ class Contact {
     img = map[imgColumn];
   }
 
+  // Metódo que transforma o objecto do contacto em mapa JSON
   Map toMap() {
     Map<String, dynamic> map = {
       nameColumn: name,
